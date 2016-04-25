@@ -1,0 +1,42 @@
+extends layout
+
+block content
+    
+                                
+            
+    div.container
+        div.row
+            div.col-sm-6.col-md-4.col-md-offset-4
+                #user
+                mixin article
+                  .list-group-item
+                    .article-wrapper
+                      if block
+                        block
+                      else
+                        p No content provided
+
+                - for (var i=0; i<ranking.ranking.length; i++){
+                    +article
+                        form(action='/addfriend', method='POST')
+                            h4.list-group-item-heading= ranking.ranking[i].username
+                            p.list-group-item-text= ranking.ranking[i].email 
+                            input(type='hidden', name='meemail', value= user.email)
+                            input(type='hidden', name='fremail', value= ranking.ranking[i].email)
+                            
+                            if(i<5)
+                                button( type='submit') Add Friend
+                                            span.clearfix 
+                            else
+                                h4 Friend
+                                             
+                - }
+                a(href='/home', class='text-center new-account') Back to homepage
+            #message
+                if message
+                    h1.text-center.error-message #{message}
+                
+
+
+
+
