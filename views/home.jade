@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	div.container
+		div.row
+			div.col-sm-6.col-md-4.col-md-offset-4
+				#user
+					h1.text-center.login-title Welcome #{user.username}
+						a(href='/info', class='text-center new-account') Check your info
+						a(href='/signout', class='text-center new-account') Sign Out
+						a(href='/message', class='text-center new-account') Create Your Message
+						a(href='/users', class='text-center new-account') List User
+					#message
+					if message
+						h1.text-center.error-message #{message}
+							

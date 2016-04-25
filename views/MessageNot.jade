@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	div.container
+		div.row
+			div.col-sm-6.col-md-4.col-md-offset-4
+				#user
+					h1.text-center.login-title Send Message Sucessfull
+						a(href='/message', class='text-center new-account') Create Other Messages
+					#message
+					if message
+						h1.text-center.error-message #{message}
+							
